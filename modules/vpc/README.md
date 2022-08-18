@@ -1,3 +1,3 @@
-This module do:
-- create the VPC, and subnets.
-- Update the route table to other side
+This module does:
+- create the VPC and subnets.
+- Update the Route table to route to other sites

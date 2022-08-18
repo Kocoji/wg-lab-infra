@@ -1,5 +1,5 @@
-This is the lab environment for my blog,
-You can read its here: https://kocoji.co/posts/wireguard/
+This is the lab environment for my post,
+You can read it here: https://kocoji.co/posts/wireguard/
 
 The files/folders structure
 ```  
@@ -32,7 +32,7 @@ The files/folders structure
 ```
 
 
-You can go into two folders: `ap-southeast-1` and `us-east-1`, then use `terraform init && terraform apply` to create the demonstrate infrastructure.
+You can go into two folders: `ap-southeast-1` and `us-east-1`, then use `terraform init && terraform apply` and input required variable when asked, or create a predefined `.tfvars` file. To create the demonstrate infrastructure.
 
 Sample output:
 ``` bash
