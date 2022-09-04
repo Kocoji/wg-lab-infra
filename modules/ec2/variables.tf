@@ -43,3 +43,16 @@ variable "wireguard_ip" {
 variable "sv_ip" {
   type = string
 }
+
+variable "wg_ec2_name"{
+  type = string
+}
+
+variable "private_ec2_name" {
+  type = string
+}
+
+variable "is_server"{
+  type = string
+  description = "yes/no"
+}
