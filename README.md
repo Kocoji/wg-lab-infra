@@ -60,4 +60,5 @@ EOT
 After that, you can ssh access and continue to the manual configuration step.
 
 
-This source isn't the most optimized terraform structure, and I still learning the TF to reduce the DRY process.
+
+This source is still not the most optimized terraform structure, and I still learning the TF to apply the `DRY` principle.
