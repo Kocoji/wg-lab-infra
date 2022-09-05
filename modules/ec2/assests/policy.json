@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1662313548443",
+      "Action": [
+        "ec2:DescribeTags"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Stmt1662315768693",
+      "Action": [
+        "ssm:PutParameter",
+        "ssm:DeleteParameter"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}

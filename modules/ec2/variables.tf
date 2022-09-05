@@ -52,6 +52,19 @@ variable "private_ec2_name" {
   type = string
 }
 
+variable "wg_address" {
+  type = string
+  description = "the address for the wireguard tunnel"
+}
+variable "wg_allowed_ips" {
+  type = string
+  description = "the address of tunnel and other side"
+}
+variable "target_region" {
+  type = string
+  description = "the address of tunnel and other side"
+}
+
 variable "is_server"{
   type = string
   description = "yes/no"

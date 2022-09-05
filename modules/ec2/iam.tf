@@ -1,5 +1,5 @@
 resource "aws_iam_role" "this" {
-  name = "ec2_ssm_role"
+  name = "${var.svc_name}-ec2_ssm_role"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -21,13 +21,29 @@ resource "aws_iam_role" "this" {
   }
 }
 
+resource "aws_iam_policy" "policy" {
+  name        = "${var.svc_name}-test_policy"
+  path        = "/"
+  description = "My test policy"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = file("${path.module}/assests/policy.json")
+}
+
+
 resource "aws_iam_role_policy_attachment" "ec2-attach" {
   role       = aws_iam_role.this.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+resource "aws_iam_role_policy_attachment" "ec2-attach2" {
+  role       = aws_iam_role.this.name
+  policy_arn = aws_iam_policy.policy.arn
+}
+
 
 resource "aws_iam_instance_profile" "this" {
-  name  = "ec2_ssm_profile"
-  role       = aws_iam_role.this.name
+  name = "${var.svc_name}-ec2_ssm_profile"
+  role = aws_iam_role.this.name
 }

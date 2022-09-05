@@ -22,7 +22,10 @@ module "ec2" {
   wireguard_ip    = "10.10.100.10"
   sv_ip           = "10.10.0.10"
 
-  wg_ec2_name      = "server"
+  wg_ec2_name      = "site-a"
+  target_region    = "ap-southeast-1"
+  wg_address       = "10.0.1.1/24"
+  wg_allowed_ips   = "10.0.1.2/32, 10.20.0.0/16"
   private_ec2_name = "private-instance"
   is_server        = "yes"
 }

@@ -12,15 +12,23 @@ The files/folders structure
 │   └── variables.tf
 ├── modules
 │   ├── ec2
+│   │   ├── README.md
+│   │   ├── assests
+│   │   │   ├── peer.cfg
+│   │   │   ├── policy.json
+│   │   │   └── server.cfg
 │   │   ├── data.tf
+│   │   ├── iam.tf
 │   │   ├── keys.tf
 │   │   ├── main.tf
 │   │   ├── networks.tf
 │   │   ├── outputs.tf
 │   │   ├── scripts
-│   │   │   └── userdata.sh
+│   │   │   └── userdata-wg.sh
+│   │   ├── ssm.tf
 │   │   └── variables.tf
 │   └── vpc
+│       ├── README.md
 │       ├── main.tf
 │       ├── outputs.tf
 │       └── variables.tf
@@ -34,9 +42,11 @@ The files/folders structure
 
 You can go into two folders: `ap-southeast-1` and `us-east-1`, then use `terraform init && terraform apply` and input the required variable when asked, or create a predefined `.tfvars` file. To create the demonstrate infrastructure.
 
+The EC2 modules leverage the SSM Parameter to store the configuration data. So, this will fully install the WireGuard Lab environment, you don't need to manually config anymore.
+
 Sample output:
 ``` bash
-Apply complete! Resources: 17 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 26 added, 0 changed, 0 destroyed.
 
 Outputs:
 
