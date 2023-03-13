@@ -62,11 +62,10 @@ main() {
     allowIps=`getSsmParam $ssmWgAllowedIPs $region`
 
     # update the wg tunnel address
-    sed -e "s@Address =.*@Address = $wgAddr@" $configPath -i
-    sed -e "s@PrivateKey =.*@PrivateKey = $privatekey@" $configPath -i
-    sed -e "s@PublicKey =.*@PublicKey = $peerPubkey@" $configPath -i
-    sed -e "s@AllowedIPs =.*@AllowedIPs = $allowIps@" $configPath -i
-
+    sed -e "s@Address =.*@Address = $wgAddr@" \
+        -e "s@PrivateKey =.*@PrivateKey = $privatekey@" \
+        -e "s@PublicKey =.*@PublicKey = $peerPubkey@" \
+        -e "s@AllowedIPs =.*@AllowedIPs = $allowIps@" $configPath -i
 
     systemctl enable wg-quick@wg0
     systemctl start wg-quick@wg0
